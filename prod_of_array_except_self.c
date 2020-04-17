@@ -1,39 +1,4 @@
 
-
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-
-int mul_num(int * arr, int size, int skip_num)
-{
-    static int ans = 0;
-    if(size == 0)
-    {
-      
-        return arr[size];
-    
-    }
-    else
-    {
-           if(size != skip_num)
-              ans = arr[size]* mul_num(arr,(size -1),skip_num);
-            else
-            {
-                if((size -1) == 0)
-                {
-                    ans = arr[size]* mul_num(arr,(size -1),skip_num);
-                }
-                else
-                {
-                     ans = arr[size]* mul_num(arr,(size -2),skip_num);
-                }
-            }
-        
-        
-    }
-   return ans;
-}
-
 int* productExceptSelf(int* nums, int numsSize, int* returnSize){
   
     int *prefix = malloc(sizeof(int)*numsSize);
